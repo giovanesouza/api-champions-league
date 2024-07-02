@@ -1,14 +1,8 @@
-import express, {Request, Response} from "express";
+import createApp from "./app";
 
-const app = express(); // cria aplicação expressx
-const port = process.env.PORT;
-
-app.get('/', (req: Request, res: Response)=> {
-    res.status(200).json('Bem vindo(a) à API da Champions League.');
-});
-
-
+const app = createApp();
+const port = process.env.PORT; // indica a porta para o servidor
 
 app.listen(port, ()=> {
-    console.log(`Aplicação rodando em: http://localhost:${port}`)
+    console.log(`Aplicação rodando em: http://localhost:${port}/api`)
 });
