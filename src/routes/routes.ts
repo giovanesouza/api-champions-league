@@ -6,6 +6,7 @@ const router = Router();
 
 router.get("/", welcome);
 router.get("/players", PlayerController.getPlayer);
+router.post("/players", PlayerController.postPlayer);
 router.get("/players/:id", PlayerController.getPlayerById); // rota com parâmetro (path param)
 
 export default router;
