@@ -343,7 +343,11 @@ export const insertPlayer = async (player: PlayerModel) => {
 export const deleteOnePlayer = async (id: number) => {
   const index = database.findIndex((p) => p.id === id); // verifica a posição do item no array
   // se localizar o item, remove-o
-  if (index !== -1) database.splice(index, 1);
+  if (index !== -1) {
+    database.splice(index, 1);
+    return true;
+  }
+  return false;
 };
 
 export const findAndModify = async (
