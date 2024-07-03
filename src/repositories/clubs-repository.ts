@@ -1,12 +1,8 @@
 import { ClubModel } from "../models/club-model";
-
-const database = [
-    {
-        id: 1,
-        name: "Real Madrid",
-    }
-];
+import fs from "fs/promises"; // módulo para leitura de arquivos do SO
 
 export const findAllClubs = async (): Promise<ClubModel[]> => {
-    return database;
+    const data = await fs.readFile("./src/data/clubs.json", "utf-8"); // lê o arquivo respeitando a acentuação
+    const clubs: ClubModel[] = JSON.parse(data); //converte data (texto) para objeto (json)
+    return clubs;
   };
